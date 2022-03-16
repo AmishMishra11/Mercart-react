@@ -12,9 +12,9 @@ function Nav() {
         <header>
           <div className="title">
             <img className="logo" src={Logo} alt="Logo " />
-            <a className="brand-link" href="/Home">
+            <Link className="brand-link" to="/">
               <h2 className="name">Mercart</h2>
-            </a>
+            </Link>
           </div>
 
           <div className="search">

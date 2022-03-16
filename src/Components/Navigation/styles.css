@@ -1,0 +1,58 @@
+.container-nav {
+  padding: 0;
+
+  grid-area: nav;
+}
+.logo {
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.nav header {
+  padding: var(--gap-medium);
+  background-color: var(--background-color);
+}
+.nav .brand-link:hover {
+  background-color: var(--background-color);
+  opacity: 163%;
+}
+
+.name {
+  color: var(--primary-color);
+  margin: 0;
+}
+.nav .name {
+  margin-left: 0;
+}
+.search button {
+  background-color: var(--primary-color);
+}
+.menu li {
+  padding: var(--gap-small);
+}
+.menu a {
+  padding: var(--gap-small);
+  background-color: var(--primary-color);
+}
+
+/* badge */
+.icon-bell p {
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 610px) {
+  .search input {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  nav .title .logo {
+    width: 4rem;
+    height: 4rem;
+  }
+  nav .title .brand-link {
+    font-size: 1rem;
+  }
+}

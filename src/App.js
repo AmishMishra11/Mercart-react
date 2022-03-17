@@ -7,10 +7,11 @@ import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import Nav from "./Components/Navigation";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Nav />
 
       <Routes>
@@ -20,8 +21,8 @@ function App() {
         <Route path="wishlist" element={<Wishlist />} />
       </Routes>
 
-      {/* <Footer /> */}
-    </>
+      <Footer />
+    </div>
   );
 }
 

@@ -6,8 +6,8 @@ import Summer from "../../assets/offers/summer.png";
 import Toy from "../../assets/offers/toy.png";
 import Winter from "../../assets/offers/winter.png";
 
-function Carouse() {
-  var counter = 1;
+function Carousel() {
+  let counter = 1;
 
   setInterval(() => {
     document.getElementById("radio" + counter).checked = true;
@@ -52,4 +52,4 @@ function Carouse() {
   );
 }
 
-export default Carouse;
+export default Carousel;

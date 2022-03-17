@@ -1,0 +1,42 @@
+h1 {
+  margin: var(--gap-large);
+}
+
+main {
+  grid-area: main;
+  padding: 2rem;
+}
+.main-cards {
+  background-color: white;
+  flex-wrap: wrap;
+}
+.card-buy {
+  justify-content: space-around;
+  margin-top: 5px;
+}
+.item {
+  width: 18rem;
+  border: 2px solid var(--extra-color);
+  border-radius: 5px;
+}
+.star {
+  color: yellow;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.card-btn {
+  padding: var(--gap-small);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-color);
+}

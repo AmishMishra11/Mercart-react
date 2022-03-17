@@ -1,6 +1,7 @@
 .container-nav {
+  position: sticky;
+  top: 0;
   padding: 0;
-
   grid-area: nav;
 }
 .logo {

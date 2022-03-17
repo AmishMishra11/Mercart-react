@@ -7,7 +7,7 @@ import "./styles.css";
 
 function Nav() {
   return (
-    <div className="container-nav">
+    <div className="container-nav zi-5">
       <nav className="nav">
         <header>
           <div className="title">

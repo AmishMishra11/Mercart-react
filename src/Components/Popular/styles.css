@@ -16,7 +16,7 @@ main {
 }
 .item {
   width: 18rem;
-  border: 2px solid var(--extra-color);
+  border: 2px solid black;
   border-radius: 5px;
 }
 .star {

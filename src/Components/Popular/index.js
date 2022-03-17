@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./styles.css";
-const axios = require("axios").default;
+import axios from "axios";
 
 function Popular() {
   const [popular, setPopular] = useState([]);
@@ -12,7 +12,7 @@ function Popular() {
         const res = await axios.get("/api/products");
         if (res.status === 200) {
           const products = res.data.products;
-          console.log(products);
+
           setPopular([...products]);
         }
       } catch (e) {
@@ -30,7 +30,7 @@ function Popular() {
           {popular.map((item) => (
             <div className="card">
               <img className="item" src={item.imageURL} />
-              <a className="badge" href="#">
+              <a className="badge" href="">
                 <i className="fas fa-heart"></i>
               </a>
               <h2>{item.title}</h2>

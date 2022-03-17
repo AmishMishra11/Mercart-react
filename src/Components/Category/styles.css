@@ -1,0 +1,27 @@
+.category {
+  grid-area: header;
+  /* background-color: var(--secondary-color); */
+  background-color: #f4442e;
+  display: flex;
+  justify-content: space-around;
+}
+
+.category > * {
+  padding: var(--gap-small);
+}
+
+.category .content a {
+  color: black;
+}
+.category .content:hover {
+  background-color: var(--secondary-color);
+}
+.content .text {
+  text-align: center;
+  width: auto;
+}
+
+.color-box img {
+  height: 4rem;
+  width: 4rem;
+}

@@ -27,30 +27,32 @@ function Popular() {
 
       <main>
         <div className="main-cards flex-r">
-          {popular.map((item) => (
-            <div className="card">
-              <img className="item" src={item.imageURL} />
-              <a className="badge" href="">
-                <i className="fas fa-heart"></i>
-              </a>
-              <h2>{item.title}</h2>
-              <h4 className="flex-r rating">
-                <div>₹{item.price}</div>
-                <div>
-                  {item.rating}
-                  <i class="fas fa-star star"></i>
+          {popular
+            .filter((item) => item.isPopular)
+            .map((item) => (
+              <div className="card">
+                <img className="item" src={item.imageURL} />
+                <a className="badge" href="">
+                  <i className="fas fa-heart"></i>
+                </a>
+                <h2>{item.title}</h2>
+                <h4 className="flex-r rating">
+                  <div>₹{item.price}</div>
+                  <div>
+                    {item.rating}
+                    <i class="fas fa-star star"></i>
+                  </div>
+                </h4>
+                <div className="card-buy flex-r">
+                  <a className="card-btn border-radius-S" href="">
+                    Buy Now
+                  </a>
+                  <a className="card-btn btn-secondary border-radius-S" href="">
+                    Add to cart
+                  </a>
                 </div>
-              </h4>
-              <div className="card-buy flex-r">
-                <a className="card-btn border-radius-S" href="">
-                  Buy Now
-                </a>
-                <a className="card-btn btn-secondary border-radius-S" href="">
-                  Add to cart
-                </a>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </main>
     </div>

@@ -20,7 +20,7 @@ main {
   border-radius: 5px;
 }
 .star {
-  color: yellow;
+  color: var(--extra-color);
 }
 
 .rating {

@@ -21,7 +21,7 @@ function Carousel() {
   return (
     <div>
       <div className="offers flex-r">
-        <div className="slider">
+        <div className="sliders">
           <div className="slides">
             <input type="radio" name="radio-btn " id="radio1" />
             <input type="radio" name="radio-btn " id="radio2" />

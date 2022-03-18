@@ -1,0 +1,13 @@
+.btn-primary {
+  color: white;
+}
+.badge {
+  background-color: transparent;
+}
+.badge .fa-heart {
+  margin-top: -1rem;
+  padding: 1rem;
+}
+.badge:hover {
+  background-color: transparent;
+}

@@ -1,0 +1,48 @@
+/* container main */
+
+.container-main {
+  display: flex;
+}
+
+/* aside */
+aside {
+  position: sticky;
+  top: 6.5rem;
+  width: 30%;
+  height: calc(100vh - (6.5rem));
+  background-color: var(--secondary-color);
+}
+
+/* main */
+main {
+  flex-wrap: wrap;
+}
+main h1 {
+  margin: 0;
+}
+.card-buy {
+  justify-content: space-around;
+  margin-top: 5px;
+}
+.card-btn {
+  padding: var(--gap-small);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 1200px) {
+  aside {
+    flex: 0 0 180px;
+  }
+}
+@media (max-width: 600px) {
+  aside {
+    flex: 0 0 150px;
+  }
+}

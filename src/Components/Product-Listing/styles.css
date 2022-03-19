@@ -5,12 +5,18 @@
 }
 
 /* aside */
-aside {
+
+.filters {
+  justify-content: start;
+  align-items: stretch;
+  gap: 2rem;
   position: sticky;
   top: 6.5rem;
-  width: 30%;
+  width: 100%;
+  max-width: 15rem;
   height: calc(100vh - (6.5rem));
   background-color: var(--secondary-color);
+  padding: var(--gap-small);
 }
 
 /* main */
@@ -37,12 +43,12 @@ main h1 {
 }
 
 @media (max-width: 1200px) {
-  aside {
+  .filters {
     flex: 0 0 180px;
   }
 }
 @media (max-width: 600px) {
-  aside {
+  .filters {
     flex: 0 0 150px;
   }
 }

@@ -38,7 +38,7 @@ function Footer() {
             </li>
             <li>
               <Link className="border-radius-S" to="/Wishlist">
-                wishlist
+                Wishlist
               </Link>
             </li>
           </ul>

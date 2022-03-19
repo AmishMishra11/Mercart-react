@@ -1,4 +1,4 @@
-import Home from "./Pages/Home";
+// import Home from "./Pages/Home";
 import Cart from "./Pages/Cart";
 import Products from "./Pages/Products";
 import Wishlist from "./Pages/Wishlist";

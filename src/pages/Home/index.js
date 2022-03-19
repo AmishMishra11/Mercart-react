@@ -5,7 +5,7 @@ import Category from "../../Components/Category";
 import Carousel from "../../Components/Carousel";
 import Popular from "../../Components/Popular";
 
-function Home() {
+export default function Home() {
   return (
     <div className="home">
       <Category />
@@ -15,5 +15,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

@@ -1,7 +1,7 @@
-import Home from "./Pages/Home";
-import Cart from "./Pages/Cart";
-import Products from "./Pages/Products";
-import Wishlist from "./Pages/Wishlist";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import Products from "./pages/Products";
+import Wishlist from "./pages/Wishlist";
 
 import { Route, Routes } from "react-router-dom";
 

@@ -53,7 +53,24 @@
     width: 4rem;
     height: 4rem;
   }
+
   nav .title .brand-link {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  nav .menu,
+  .badges-icon {
+    padding: 0;
+  }
+  .icon-bell p {
+    right: -1px;
+  }
+  .menu li {
+    padding: 3px;
+  }
+  .nav button {
+    padding: 5px;
   }
 }

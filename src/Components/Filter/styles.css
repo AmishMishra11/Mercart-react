@@ -4,6 +4,7 @@
 
 .filter .clear {
   color: var(--primary-color);
+  cursor: pointer;
 }
 .range {
   justify-content: space-between;

@@ -18,43 +18,41 @@ function Category() {
     <div>
       <header className="category">
         <Link className="content flex-c" to="/products">
-          <div
-            className="color-box"
-            onClick={() => dispatchFilter({ type: "MEN", payload: !men })}
-          >
-            <img alt="Men" src={Men} />
+          <div onClick={() => dispatchFilter({ type: "MEN", payload: !men })}>
+            <div className="color-box">
+              <img alt="Men" src={Men} />
+            </div>
+            <div className="text">Men</div>
           </div>
-          <div className="text">Men</div>
         </Link>
 
         <Link className="content flex-c" to="/products">
           <div
-            className="color-box"
             onClick={() => dispatchFilter({ type: "WOMEN", payload: !women })}
           >
-            <img alt="Women" src={Women} />
+            <div className="color-box">
+              <img alt="Women" src={Women} />
+            </div>
+            <div className="text">Women</div>
           </div>
-          <div className="text">Women</div>
         </Link>
 
         <Link className="content flex-c" to="/products">
-          <div
-            className="color-box"
-            onClick={() => dispatchFilter({ type: "KID", payload: !kid })}
-          >
-            <img alt="Kids" src={Kids} />
+          <div onClick={() => dispatchFilter({ type: "KID", payload: !kid })}>
+            <div className="color-box">
+              <img alt="Kids" src={Kids} />
+            </div>
+            <div className="text">Kids</div>
           </div>
-          <div className="text">Kids</div>
         </Link>
 
         <Link className="content flex-c" to="/products">
-          <div
-            className="color-box"
-            onClick={() => dispatchFilter({ type: "TOY", payload: !toy })}
-          >
-            <img alt="Toy" src={Toy} />
+          <div onClick={() => dispatchFilter({ type: "TOY", payload: !toy })}>
+            <div className="color-box">
+              <img alt="Toy" src={Toy} />
+            </div>
+            <div className="text">Toys</div>
           </div>
-          <div className="text">Toys</div>
         </Link>
       </header>
     </div>

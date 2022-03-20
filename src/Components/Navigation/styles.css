@@ -35,6 +35,14 @@
   padding: var(--gap-small);
   background-color: var(--primary-color);
 }
+.menu .login {
+  padding: var(--gap-small);
+  background-color: var(--primary-color);
+}
+
+.menu .login:hover {
+  cursor: pointer;
+}
 
 /* badge */
 .icon-bell p {

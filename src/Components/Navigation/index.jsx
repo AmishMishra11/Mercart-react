@@ -1,11 +1,21 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../Contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/E-Cart-Logo-transparent.png";
 import "./styles.css";
 
 function Nav() {
+  const navigate = useNavigate();
+
+  const { stateAuth, dispatchAuth } = useAuth();
+
+  const handleLogout = () => {
+    dispatchAuth({ type: "USER_LOGOUT" });
+    localStorage.removeItem("token");
+  };
+
   return (
     <div className="container-nav zi-5">
       <nav className="nav">
@@ -47,9 +57,21 @@ function Nav() {
               </div>
             </div>
             <li>
-              <Link className="login border-radius-S" to="/login">
-                Login
-              </Link>
+              {stateAuth.isAuth ? (
+                <div
+                  className="login border-radius-S"
+                  onClick={() => handleLogout()}
+                >
+                  Logout
+                </div>
+              ) : (
+                <div
+                  className="login border-radius-S"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </div>
+              )}
             </li>
           </ul>
         </header>

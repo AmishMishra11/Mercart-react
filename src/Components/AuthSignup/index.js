@@ -1,19 +1,79 @@
 import React from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContext";
+import { useState } from "react";
+import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
 
 function AuthSignup() {
+  const navigate = useNavigate();
+
+  const [tempUserDetail, setTempUserDetail] = useState({
+    tempFirstName: "",
+    tempLastName: "",
+    tempEmail: "",
+    tempPassword: "",
+  });
+
+  const handleChange = (e) => {
+    setTempUserDetail({
+      ...tempUserDetail,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const { dispatchAuth } = useAuth();
+
+  const { tempFirstName, tempLastName, tempEmail, tempPassword } =
+    tempUserDetail;
+
+  const submitUserDetails = async () => {
+    try {
+      const response = await axios.post(`/api/auth/signup`, {
+        firstName: tempFirstName,
+        lastName: tempLastName,
+        email: tempEmail,
+        password: tempPassword,
+      });
+      dispatchAuth({
+        type: "GET_USER_DETAILS",
+        payload: response.data.createdUser,
+      });
+
+      localStorage.setItem("token", response.data.encodedToken);
+      navigate("/products");
+    } catch (e) {
+      console.log("error occured: ", e);
+    }
+  };
+
   return (
-    <div className="container-login flex-c">
+    <div className="container-login con-signup flex-c">
       <h1>Signup</h1>
 
-      <div className="user">
-        <label htmlFor="user-id"> User Name</label>
+      <div className="first-name">
+        <label htmlFor="first-name-id"> First Name </label>
         <input
           className="border-radius-S"
           type="text"
-          id="user-id"
-          placeholder="User_Name"
+          id="first-name-id"
+          placeholder="First_Name"
+          name="tempFirstName"
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="second-name">
+        <label htmlFor="second-name-id"> Second Name </label>
+        <input
+          className="border-radius-S"
+          type="text"
+          id="second-name-id"
+          placeholder="Second_Name"
+          name="tempLastName"
+          onChange={handleChange}
         />
       </div>
 
@@ -24,6 +84,8 @@ function AuthSignup() {
           type="text"
           id="email-id"
           placeholder="name@company.com"
+          name="tempEmail"
+          onChange={handleChange}
         />
       </div>
 
@@ -34,6 +96,8 @@ function AuthSignup() {
           type="password"
           id="password-id"
           placeholder="**********"
+          name="tempPassword"
+          onChange={handleChange}
         />
       </div>
 
@@ -46,11 +110,11 @@ function AuthSignup() {
         </div>
       </div>
 
-      <Link className="login-btn border-radius-S" to="/products">
-        Create New Account
-      </Link>
+      <div className="login-btn border-radius-S" onClick={submitUserDetails}>
+        <div>Create New Account</div>
+      </div>
       <Link className="login-btn btn-secondary border-radius-S" to="/login">
-        Already have an account
+        <div> Already have an account</div>
       </Link>
     </div>
   );

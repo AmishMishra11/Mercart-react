@@ -110,7 +110,14 @@ function AuthSignup() {
         </div>
       </div>
 
-      <div className="login-btn border-radius-S" onClick={submitUserDetails}>
+      <div
+        className="login-btn border-radius-S"
+        onClick={() => {
+          !tempFirstName && !tempLastName && !tempEmail && !tempPassword
+            ? alert("Please fill all the fields")
+            : submitUserDetails();
+        }}
+      >
         <div>Create New Account</div>
       </div>
       <Link className="login-btn btn-secondary border-radius-S" to="/login">

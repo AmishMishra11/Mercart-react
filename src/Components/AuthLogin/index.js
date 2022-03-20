@@ -4,46 +4,46 @@ import { Link } from "react-router-dom";
 
 function AuthLogin() {
   return (
-    <div class="container-login flex-c">
+    <div className="container-login flex-c">
       <h1>Login</h1>
 
-      <div class="email">
-        <label for="email-id"> Email address</label>
+      <div className="email">
+        <label htmlFor="email-id"> Email address</label>
         <input
-          class="border-radius-S"
+          className="border-radius-S"
           type="text"
           id="email-id"
           placeholder="name@company.com"
         />
       </div>
 
-      <div class="password">
-        <label for="password-id"> Password</label>
+      <div className="password">
+        <label htmlFor="password-id"> Password</label>
         <input
-          class="border-radius-S"
+          className="border-radius-S"
           type="password"
           id="password-id"
           placeholder="**********"
         />
       </div>
 
-      <div class="container-extra">
-        <div class="container-reminder flex-r">
-          <label class="checkbox">
-            <input class="check-input" type="checkbox" />
-            <span class="check-msg">Remember Me</span>
+      <div className="container-extra">
+        <div className="container-reminder flex-r">
+          <label className="checkbox">
+            <input className="check-input" type="checkbox" />
+            <span className="check-msg">Remember Me</span>
           </label>
         </div>
 
-        <div class="forgot">
+        <div className="forgot">
           <a href="#">Forgot Your Password</a>
         </div>
       </div>
 
-      <Link class="login-btn border-radius-S" to="/products">
+      <Link className="login-btn border-radius-S" to="/products">
         Login
       </Link>
-      <Link class="login-btn btn-secondary border-radius-S" to="/signup">
+      <Link className="login-btn btn-secondary border-radius-S" to="/signup">
         Create New Account
       </Link>
     </div>

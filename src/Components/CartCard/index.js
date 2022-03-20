@@ -7,37 +7,37 @@ const CartCard = ({ item }) => {
   const { title, price, rating, imageURL } = item;
   // will take item as props after auth
   return (
-    <div class="items-cart">
-      <div class="card horizontal">
-        <div class="horizontal-container">
-          <img class="item" src={Men} />
-          <div class="text-container">
+    <div className="items-cart">
+      <div className="card horizontal">
+        <div className="horizontal-container">
+          <img className="item" src={Men} />
+          <div className="text-container">
             <h2>Marvel Shirt</h2>
             <h3>
               ₹999 <span> ₹1999</span>
             </h3>
-            <h3 class="offer">50% off</h3>
+            <h3 className="offer">50% off</h3>
 
-            <div class="quantity flex-r">
+            <div className="quantity flex-r">
               <p>Quantity :</p>
-              <button class="border-radius-Circle">-</button>
+              <button className="border-radius-Circle">-</button>
               <input
-                class="border-radius-S"
+                className="border-radius-S"
                 type="number"
                 name="quantity"
                 value="1"
               />
-              <button class="border-radius-Circle">+</button>
+              <button className="border-radius-Circle">+</button>
             </div>
 
-            <div class="button">
-              <button class="button-secondary border-radius-L">
+            <div className="button">
+              <button className="button-secondary border-radius-L">
                 Move to Wishlist
               </button>
             </div>
 
-            <div class="button">
-              <button class="button-secondary third border-radius-L">
+            <div className="button">
+              <button className="button-secondary third border-radius-L">
                 Remove from cart
               </button>
             </div>

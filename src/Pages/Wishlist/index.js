@@ -1,11 +1,10 @@
 import React from "react";
 import "./styles.css";
-
+import AuthWishlist from "../../Components/AuthWishlist";
 function Wishlist() {
   return (
     <div className="wishlist">
-      This is Wishlist
-      {/* <items_in_wishlist /> */}
+      <AuthWishlist />
     </div>
   );
 }

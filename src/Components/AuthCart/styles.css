@@ -1,0 +1,42 @@
+.cart-style h1 {
+  text-align: center;
+}
+
+.container-cart {
+  flex-wrap: wrap;
+  margin-bottom: 7rem;
+  align-items: flex-start;
+}
+
+/* order */
+.order {
+  border: 2px solid var(--primary-color);
+  padding: var(--gap-medium);
+  align-items: stretch;
+  justify-content: space-between;
+  height: 25rem;
+  width: 20rem;
+  margin: var(--gap-medium);
+}
+
+.space {
+  justify-content: space-between;
+}
+
+.button button {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 450px) {
+  .card {
+    height: 18rem;
+    width: 31rem;
+  }
+
+  .horizontal .item {
+    height: 15rem;
+    width: 13rem;
+    background-color: grey;
+  }
+}

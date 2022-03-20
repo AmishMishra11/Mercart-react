@@ -4,9 +4,8 @@ import "./styles.css";
 import axios from "axios";
 
 import Card from "../Card";
-
-function Popular() {
-  const [popular, setPopular] = useState([]);
+function AuthWishlist() {
+  const [wish, setWish] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -15,7 +14,7 @@ function Popular() {
         if (res.status === 200) {
           const products = res.data.products;
 
-          setPopular([...products]);
+          setWish([...products]);
         }
       } catch (e) {
         console.log("error occured: ", e);
@@ -24,13 +23,14 @@ function Popular() {
   }, []);
 
   return (
-    <div>
-      <h1>Popular Products</h1>
+    <div className="wish">
+      <h1>My Wishlist (3)</h1>
 
       <main>
         <div className="main-cards flex-r">
-          {popular
+          {wish
             .filter((item) => item.isPopular)
+            // just temperory until I do auth
             .map((item) => (
               <Card key={item._id} item={item} />
             ))}
@@ -40,4 +40,4 @@ function Popular() {
   );
 }
 
-export default Popular;
+export default AuthWishlist;

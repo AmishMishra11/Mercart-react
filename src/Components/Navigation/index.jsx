@@ -47,12 +47,9 @@ function Nav() {
               </div>
             </div>
             <li>
-              <a
-                className="login border-radius-S"
-                href="/authentication/login.html"
-              >
+              <Link className="login border-radius-S" to="/login">
                 Login
-              </a>
+              </Link>
             </li>
           </ul>
         </header>

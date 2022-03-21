@@ -33,8 +33,6 @@ function AuthLogin() {
         password: tempPassword,
       });
 
-      console.log("ccccc", response);
-
       dispatchAuth({
         type: "GET_USER_DETAILS",
         payload: response.data.createdUser,

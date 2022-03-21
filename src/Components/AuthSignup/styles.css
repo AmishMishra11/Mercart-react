@@ -6,7 +6,14 @@
   margin-bottom: 8rem;
   padding: var(--gap-large);
 }
-.user,
+
+.con-signup {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.first-name,
+.second-name,
 .email,
 .password {
   width: 100%;
@@ -15,7 +22,9 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.user input,
+
+.first-name input,
+.second-name input,
 .email input,
 .password input {
   width: 100%;
@@ -91,6 +100,10 @@
   padding: var(--gap-small);
   background-color: var(--primary-color);
   text-align: center;
+}
+
+.login-btn:hover {
+  cursor: pointer;
 }
 
 .container-login .btn-secondary {

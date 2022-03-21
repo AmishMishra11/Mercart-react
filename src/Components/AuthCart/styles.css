@@ -27,16 +27,3 @@
   width: 100%;
   margin: 0;
 }
-
-@media (max-width: 450px) {
-  .card {
-    height: 18rem;
-    width: 31rem;
-  }
-
-  .horizontal .item {
-    height: 15rem;
-    width: 13rem;
-    background-color: grey;
-  }
-}

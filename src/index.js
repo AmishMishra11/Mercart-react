@@ -5,6 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { FilterContextProvider } from "./Contexts/FilterContext";
+import { AuthContextProvider } from "./Contexts/AuthContext";
 
 // Call make Server
 makeServer();
@@ -12,9 +13,11 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <FilterContextProvider>
-        <App />
-      </FilterContextProvider>
+      <AuthContextProvider>
+        <FilterContextProvider>
+          <App />
+        </FilterContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

@@ -31,7 +31,9 @@
 .menu li {
   padding: var(--gap-small);
 }
-.menu a {
+
+.menu a,
+.menu .wishlist {
   padding: var(--gap-small);
   background-color: var(--primary-color);
 }
@@ -39,8 +41,9 @@
   padding: var(--gap-small);
   background-color: var(--primary-color);
 }
-
+.menu .wishlist:hover,
 .menu .login:hover {
+  opacity: 63%;
   cursor: pointer;
 }
 

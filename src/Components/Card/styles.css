@@ -8,6 +8,12 @@
   margin-top: -1rem;
   padding: 1rem;
 }
+
+.badge .wish-active {
+  color: var(--primary-color);
+}
+
 .badge:hover {
   background-color: transparent;
+  cursor: pointer;
 }

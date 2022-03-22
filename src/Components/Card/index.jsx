@@ -1,13 +1,52 @@
+import axios from "axios";
 import React from "react";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContext";
+
+import { useCart } from "../../Contexts/CartContext";
+
+import { addWishlist } from "../../Call-Apis/add-wishlist";
+import { removeWishlist } from "../../Call-Apis/remove-wishlist";
+
 const Card = ({ item }) => {
-  const { title, price, rating, imageURL } = item;
+  const navigate = useNavigate();
+
+  const { stateCart, dispatchCart } = useCart();
+
+  const { myWishlist } = stateCart;
+
+  const { stateAuth } = useAuth();
+
+  const { title, price, rating, imageURL, _id } = item;
   return (
     <div className="card">
       <img className="item" src={imageURL} />
-      <a className="badge" href="">
-        <i className="fas fa-lg fa-heart"></i>
-      </a>
+
+      {stateAuth.isAuth ? (
+        <div
+          className="badge"
+          onClick={
+            myWishlist.length === 0
+              ? () => addWishlist(item, dispatchCart)
+              : () =>
+                  myWishlist.find((product) => product._id === _id)
+                    ? removeWishlist(_id, dispatchCart)
+                    : addWishlist(item, dispatchCart)
+          }
+        >
+          <i
+            className={`fas fa-lg fa-heart ${
+              myWishlist.find((product) => product._id === _id) && `wish-active`
+            } `}
+          ></i>
+        </div>
+      ) : (
+        <div className="badge" onClick={() => navigate("/login")}>
+          <i className="fas fa-lg fa-heart"></i>
+        </div>
+      )}
+
       <h2>{title}</h2>
       <h4 className="flex-r rating">
         <div>₹{price}</div>

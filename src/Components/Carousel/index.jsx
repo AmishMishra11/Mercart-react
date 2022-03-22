@@ -5,18 +5,25 @@ import Opening from "../../assets/offers/opening.jpg";
 import Summer from "../../assets/offers/summer.png";
 import Toy from "../../assets/offers/toy.png";
 import Winter from "../../assets/offers/winter.png";
+import { useEffect } from "react";
 
 function Carousel() {
   let counter = 1;
 
-  setInterval(() => {
-    document.getElementById("radio" + counter).checked = true;
-    counter++;
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      document.getElementById("radio" + counter).checked = true;
+      counter++;
 
-    if (counter > 4) {
-      counter = 1;
-    }
-  }, 4000);
+      if (counter > 4) {
+        counter = 1;
+      }
+    }, 4000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [counter]);
 
   return (
     <div>
@@ -40,10 +47,10 @@ function Carousel() {
               <img className="offer-img" alt="Toy" src={Toy} />
             </div>
             <div className="navigation zi-2">
-              <label for="radio1" className="manual-btn"></label>
-              <label for="radio2" className="manual-btn"></label>
-              <label for="radio3" className="manual-btn"></label>
-              <label for="radio4" className="manual-btn"></label>
+              <label htmlFor="radio1" className="manual-btn"></label>
+              <label htmlFor="radio2" className="manual-btn"></label>
+              <label htmlFor="radio3" className="manual-btn"></label>
+              <label htmlFor="radio4" className="manual-btn"></label>
             </div>
           </div>
         </div>

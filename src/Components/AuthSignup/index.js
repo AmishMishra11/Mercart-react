@@ -46,6 +46,7 @@ function AuthSignup() {
       navigate("/products");
     } catch (e) {
       console.log("error occured: ", e);
+      alert("Some error occured");
     }
   };
 

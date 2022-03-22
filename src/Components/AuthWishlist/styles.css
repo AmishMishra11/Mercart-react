@@ -5,9 +5,3 @@
 .wish h1 {
   text-align: center;
 }
-
-/* wishlist heart color will be changed to red with the authentication */
-
-.wish .badge {
-  color: var(--primary-color);
-}

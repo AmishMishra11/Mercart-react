@@ -14,13 +14,17 @@ function AuthWishlist() {
     <div className="wish">
       <h1>My Wishlist ({myWishlist.length})</h1>
 
-      <main>
-        <div className="main-cards flex-r">
-          {myWishlist.map((item) => (
-            <Card key={item._id} item={item} />
-          ))}
-        </div>
-      </main>
+      {myWishlist.length === 0 ? (
+        <h1>Wishlist is Empty</h1>
+      ) : (
+        <main>
+          <div className="main-cards flex-r">
+            {myWishlist.map((item) => (
+              <Card key={item._id} item={item} />
+            ))}
+          </div>
+        </main>
+      )}
     </div>
   );
 }

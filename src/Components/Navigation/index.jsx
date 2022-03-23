@@ -13,7 +13,7 @@ function Nav() {
 
   const { stateCart } = useCart();
 
-  const { myWishlist } = stateCart;
+  const { myWishlist, myCart } = stateCart;
 
   const { stateAuth, dispatchAuth } = useAuth();
 
@@ -44,7 +44,6 @@ function Nav() {
             <div className="badges-icon">
               <div className="icon-bell">
                 <li>
-                  {/* ---- */}
                   {stateAuth.isAuth ? (
                     <div className="wishlist-container">
                       <div
@@ -65,12 +64,6 @@ function Nav() {
                       <i className="far fa-heart"></i>
                     </div>
                   )}
-                  {/* ----- */}
-                  {/* <Link className="border-radius-S" to="/Wishlist">
-                    <i className="far fa-heart"></i>
-                  </Link>
-                  <p className="border-radius-Circle">{myWishlist.length}</p> */}
-                  {/* ----- */}
                 </li>
               </div>
             </div>
@@ -78,10 +71,24 @@ function Nav() {
             <div className="badges-icon">
               <div className="icon-bell">
                 <li>
-                  <Link className="border-radius-S" to="/Cart">
-                    <i className="fas fa-shopping-cart"></i>
-                  </Link>
-                  <p className="border-radius-Circle">0</p>
+                  {stateAuth.isAuth ? (
+                    <div className="wishlist-container">
+                      <div
+                        className="wishlist border-radius-S"
+                        onClick={() => navigate("/cart")}
+                      >
+                        <i className="fas fa-shopping-cart"></i>
+                      </div>
+                      <p className="border-radius-Circle">{myCart.length}</p>
+                    </div>
+                  ) : (
+                    <div
+                      className="wishlist border-radius-S"
+                      onClick={() => navigate("/login")}
+                    >
+                      <i className="far fa-heart"></i>
+                    </div>
+                  )}
                 </li>
               </div>
             </div>

@@ -7,8 +7,11 @@ export const useProduct = () => {
     product: [],
   };
 
-  const [state, dispatch] = useReducer(ProductReducer, initialState);
-  const { loading, product } = state;
+  const [stateProduct, dispatchProduct] = useReducer(
+    ProductReducer,
+    initialState
+  );
+  const { loading, product } = stateProduct;
 
-  return { loading, product, dispatch };
+  return { loading, product, dispatchProduct };
 };

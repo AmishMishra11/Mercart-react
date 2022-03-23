@@ -2,23 +2,29 @@ import axios from "axios";
 import React from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+
 import { useAuth } from "../../Contexts/AuthContext";
 
 import { useCart } from "../../Contexts/CartContext";
 
 import { addWishlist } from "../../Call-Apis/add-wishlist";
+
 import { removeWishlist } from "../../Call-Apis/remove-wishlist";
+
+import { addCart } from "../../Call-Apis/add-cart";
+
+import { quantityCart } from "../../Call-Apis/quantity-cart";
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
 
   const { stateCart, dispatchCart } = useCart();
 
-  const { myWishlist } = stateCart;
+  const { myWishlist, myCart } = stateCart;
 
   const { stateAuth } = useAuth();
 
-  const { title, price, rating, imageURL, _id } = item;
+  const { title, price, rating, imageURL, _id, offer } = item;
   return (
     <div className="card">
       <img className="item" src={imageURL} />
@@ -49,7 +55,9 @@ const Card = ({ item }) => {
 
       <h2>{title}</h2>
       <h4 className="flex-r rating">
-        <div>₹{price}</div>
+        <div>
+          ₹{price} <span className="offer"> {offer}%</span>
+        </div>
         <div>
           {rating}
           <i className="fas fa-star star"></i>
@@ -59,9 +67,29 @@ const Card = ({ item }) => {
         <a className="card-btn btn-primary border-radius-S" href="">
           Buy Now
         </a>
-        <a className="card-btn btn-secondary border-radius-S" href="">
-          Add to cart
-        </a>
+
+        {stateAuth.isAuth ? (
+          <div
+            className="card-btn btn-secondary border-radius-S"
+            onClick={
+              myCart.length === 0
+                ? () => addCart(item, dispatchCart)
+                : () =>
+                    myCart.find((product) => product._id === _id)
+                      ? quantityCart(_id, dispatchCart, "increment")
+                      : addCart(item, dispatchCart)
+            }
+          >
+            Add to cart
+          </div>
+        ) : (
+          <div
+            className="card-btn btn-secondary border-radius-S"
+            onClick={() => navigate("/login")}
+          >
+            Add to cart
+          </div>
+        )}
       </div>
     </div>
   );

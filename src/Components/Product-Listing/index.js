@@ -19,15 +19,13 @@ import { ratingFunction } from "../../utilities/ratingFunction";
 import { sortingFunction } from "../../utilities/sortingFunction";
 
 const ProductListing = () => {
-  const { loading, product, dispatch } = useProduct();
+  const { loading, product, dispatchProduct } = useProduct();
   const { stateFilter } = useFilter();
 
   const { sorting, men, women, kid, toy, rating, range } = stateFilter;
 
-  console.log(stateFilter);
-
   useEffect(() => {
-    loadProducts(dispatch);
+    loadProducts(dispatchProduct);
   }, []);
 
   const newData1 = rangeFunction(product, range);

@@ -1,16 +1,16 @@
-export const ProductReducer = (state, action) => {
-  switch (action.type) {
+export const ProductReducer = (stateProduct, actionProduct) => {
+  switch (actionProduct.type) {
     case "LOAD_PRODUCTS":
-      return { ...state, loading: true };
+      return { ...stateProduct, loading: true };
     case "LOAD_PRODUCTS_SUCCESS":
       return {
-        ...state,
+        ...stateProduct,
         loading: false,
-        product: action.payload,
+        product: actionProduct.payload,
       };
     case "LOAD_FAIL":
-      return { ...state, loading: false, product: null };
+      return { ...stateProduct, loading: false, product: null };
     default:
-      return state;
+      return stateProduct;
   }
 };

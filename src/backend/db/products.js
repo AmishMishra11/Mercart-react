@@ -8,6 +8,8 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Spider Man",
     price: 9000,
     rating: 5,
@@ -18,6 +20,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Glorious purpose",
     price: 7000,
     rating: 5,
@@ -28,6 +32,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Dr Strange",
     price: 2000,
     rating: 2,
@@ -38,6 +44,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Deadpool",
     price: 6000,
     rating: 5,
@@ -48,6 +56,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Venom",
     price: 1000,
     rating: 5,
@@ -58,6 +68,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Captain America ",
     price: 900,
     rating: 1,
@@ -68,6 +80,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Marvel",
     price: 2000,
     rating: 2,
@@ -79,6 +93,8 @@ export const products = [
 
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Captain America",
     price: 2000,
     rating: 1,
@@ -89,6 +105,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Marvel",
     price: 6000,
     rating: 4,
@@ -100,6 +118,8 @@ export const products = [
 
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "SpiderMan",
     price: 2000,
     rating: 2,
@@ -110,6 +130,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Black Panther",
     price: 4000,
     rating: 5,
@@ -120,6 +142,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Wolverine",
     price: 2000,
     rating: 5,
@@ -130,6 +154,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Thor Worthy ",
     price: 3000,
     rating: 2,
@@ -141,6 +167,8 @@ export const products = [
 
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Iron Man L",
     price: 2000,
     rating: 5,
@@ -152,6 +180,8 @@ export const products = [
 
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Marvel",
     price: 6000,
     rating: 4,
@@ -162,6 +192,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "SpiderMan Hoodie ",
     price: 3000,
     rating: 2,
@@ -173,6 +205,8 @@ export const products = [
 
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Wolverine",
     price: 2000,
     rating: 5,
@@ -183,6 +217,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Iron SpiderMan  ",
     price: 3000,
     rating: 2,
@@ -193,6 +229,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Loki",
     price: 2000,
     rating: 3,
@@ -203,6 +241,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Iron Man",
     price: 2000,
     rating: 3,
@@ -213,6 +253,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Iron Man",
     price: 3500,
     rating: 4,
@@ -223,6 +265,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    offer: 50,
+    qty: 0,
     title: "Black Panther",
     price: 4000,
     rating: 5,

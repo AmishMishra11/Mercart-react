@@ -1,43 +1,85 @@
 import React from "react";
 import "./styles.css";
 
-import Men from "../../assets/category/men.jpeg";
+import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../Contexts/AuthContext";
+
+import { useCart } from "../../Contexts/CartContext";
+
+import { addWishlist } from "../../Call-Apis/add-wishlist";
+
+import { removeCart } from "../../Call-Apis/remove-cart";
+
+import { quantityCart } from "../../Call-Apis/quantity-cart";
 
 const CartCard = ({ item }) => {
-  const { title, price, rating, imageURL } = item;
-  // will take item as props after auth
+  const { stateCart, dispatchCart } = useCart();
+
+  const { myWishlist } = stateCart;
+
+  const { title, price, imageURL, offer, _id, qty } = item;
   return (
     <div className="items-cart">
       <div className="card horizontal">
         <div className="horizontal-container">
-          <img className="item" src={Men} />
+          <img className="item" src={imageURL} />
           <div className="text-container">
-            <h2>Marvel Shirt</h2>
+            <h2>{title}</h2>
             <h3>
-              ₹999 <span> ₹1999</span>
+              ₹{(price * offer) / 100} <span> ₹{price}</span>
             </h3>
-            <h3 className="offer">50% off</h3>
+            <h3 className="offer">{offer}% off</h3>
 
             <div className="quantity flex-r">
               <p>Quantity :</p>
-              <button className="border-radius-Circle">-</button>
+
+              <button
+                className="border-radius-Circle"
+                onClick={
+                  qty > 1
+                    ? () => quantityCart(_id, dispatchCart, "decrement")
+                    : () => removeCart(_id, dispatchCart)
+                }
+              >
+                -
+              </button>
+
               <input
                 className="border-radius-S"
                 type="number"
                 name="quantity"
-                value="1"
+                value={qty}
               />
-              <button className="border-radius-Circle">+</button>
+              <button
+                className="border-radius-Circle"
+                onClick={() => quantityCart(_id, dispatchCart, "increment")}
+              >
+                +
+              </button>
             </div>
 
             <div className="button">
-              <button className="button-secondary border-radius-L">
+              <button
+                className="button-secondary border-radius-L"
+                onClick={
+                  myWishlist.length === 0
+                    ? () => addWishlist(item, dispatchCart)
+                    : () =>
+                        myWishlist.find((product) => product._id === _id)
+                          ? alert("Already in Wishlist")
+                          : addWishlist(item, dispatchCart)
+                }
+              >
                 Move to Wishlist
               </button>
             </div>
 
             <div className="button">
-              <button className="button-secondary third border-radius-L">
+              <button
+                className="button-secondary third border-radius-L"
+                onClick={() => removeCart(_id, dispatchCart)}
+              >
                 Remove from cart
               </button>
             </div>

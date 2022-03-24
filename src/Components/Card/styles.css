@@ -24,3 +24,24 @@
 .card-btn {
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .card {
+    padding: var(--gap-small);
+  }
+}
+
+@media (max-width: 780px) {
+  .item {
+    height: 20rem;
+  }
+  .card {
+    height: 28rem;
+    width: 20rem;
+  }
+
+  .badge {
+    top: 1.5rem;
+    right: 1rem;
+  }
+}

@@ -1,7 +1,6 @@
-import axios from "axios";
 import React from "react";
 import "./styles.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../Contexts/AuthContext";
 
@@ -27,7 +26,7 @@ const Card = ({ item }) => {
   const { title, price, rating, imageURL, _id, offer } = item;
   return (
     <div className="card">
-      <img className="item" src={imageURL} />
+      <img className="item" src={imageURL} alt="Product" />
 
       {stateAuth.isAuth ? (
         <div
@@ -64,9 +63,31 @@ const Card = ({ item }) => {
         </div>
       </h4>
       <div className="card-buy flex-r">
-        <a className="card-btn btn-primary border-radius-S" href="">
-          Buy Now
-        </a>
+        {/* -- */}
+        {stateAuth.isAuth ? (
+          <Link
+            to="/cart"
+            className="card-btn btn-primary border-radius-S"
+            onClick={
+              myCart.length === 0
+                ? () => addCart(item, dispatchCart)
+                : () =>
+                    myCart.find((product) => product._id === _id)
+                      ? quantityCart(_id, dispatchCart, "increment")
+                      : addCart(item, dispatchCart)
+            }
+          >
+            Buy Now
+          </Link>
+        ) : (
+          <div
+            className="card-btn btn-primary border-radius-S"
+            onClick={() => navigate("/login")}
+          >
+            Buy Now
+          </div>
+        )}
+        {/* -- */}
 
         {stateAuth.isAuth ? (
           <div

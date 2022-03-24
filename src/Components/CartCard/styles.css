@@ -10,6 +10,7 @@
 
 .horizontal-container {
   justify-content: space-between;
+  align-items: center;
 }
 
 .horizontal .item {
@@ -79,6 +80,19 @@
   .cart-style .horizontal .item {
     height: 15rem;
     width: 13rem;
+    background-color: grey;
+  }
+}
+
+@media (max-width: 350px) {
+  .cart-style .card {
+    height: 16rem;
+    width: 25rem;
+  }
+
+  .cart-style .horizontal .item {
+    height: 12rem;
+    width: 10rem;
     background-color: grey;
   }
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles.css";
 
+import Empty from "../../assets/empty.png";
+
 import { useCart } from "../../Contexts/CartContext";
 
 import CartCard from "../CartCard";
@@ -25,11 +27,15 @@ function AuthCart() {
   const total = finalPrice - finalDiscount;
 
   return (
-    <div className="cart-style">
+    <div className="cart-style ">
       <h1>My Cart ({myCart.length})</h1>
 
       {myCart.length === 0 ? (
-        <h1>Cart is Empty</h1>
+        <div className="flex-c">
+          <h1>Cart is Empty</h1>
+
+          <img className="responsive-image" src={Empty} alt="Empty Cart" />
+        </div>
       ) : (
         <div className="container-cart flex-r">
           {/* <!-- items --> */}

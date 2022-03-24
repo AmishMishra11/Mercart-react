@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 
 import { useAuth } from "../../Contexts/AuthContext";
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { addNewUser } from "../../Call-Apis/add-newUser";
+
 function AuthLogin() {
+  const EMAIL_REGEX = new RegExp(
+    "^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])$"
+  );
+
   const navigate = useNavigate();
 
   const [tempUserDetail, setTempUserDetail] = useState({
@@ -25,26 +30,6 @@ function AuthLogin() {
   const { dispatchAuth } = useAuth();
 
   const { tempEmail, tempPassword } = tempUserDetail;
-
-  const submitUserDetails = async () => {
-    try {
-      const response = await axios.post(`/api/auth/login`, {
-        email: tempEmail,
-        password: tempPassword,
-      });
-
-      dispatchAuth({
-        type: "GET_USER_DETAILS",
-        payload: response.data.createdUser,
-      });
-      localStorage.setItem("token", response.data.encodedToken);
-
-      navigate("/products");
-    } catch (e) {
-      console.log("error occured: ", e);
-      alert("Invalid email or password");
-    }
-  };
 
   return (
     <div className="container-login flex-c">
@@ -83,11 +68,20 @@ function AuthLogin() {
         </div>
 
         <div className="forgot">
-          <a href="#">Forgot Your Password</a>
+          <a href="/">Forgot Your Password</a>
         </div>
       </div>
 
-      <div className="login-btn border-radius-S" onClick={submitUserDetails}>
+      <div
+        className="login-btn border-radius-S"
+        onClick={() =>
+          tempEmail && tempPassword
+            ? !EMAIL_REGEX.test(tempEmail)
+              ? alert("Please Enter Valid Email")
+              : addNewUser(tempEmail, tempPassword, dispatchAuth, navigate)
+            : alert("Please fill all the fields")
+        }
+      >
         Login
       </div>
       <Link className="login-btn btn-secondary border-radius-S" to="/signup">

@@ -3,15 +3,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContext";
 import { useCart } from "../../Contexts/CartContext";
+import { useFilter } from "../../Contexts/FilterContext";
 
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/E-Cart-Logo-transparent.png";
 import "./styles.css";
+import { useState } from "react";
 
 function Nav() {
+  const [searchText, setSearchText] = useState("");
+
   const navigate = useNavigate();
 
   const { stateCart } = useCart();
+
+  const { dispatchFilter } = useFilter();
 
   const { myWishlist, myCart } = stateCart;
 
@@ -34,8 +40,24 @@ function Nav() {
           </div>
 
           <div className="search">
-            <input type="text" placeholder="What are you looking for" />
-            <button>
+            <input
+              type="text"
+              value={searchText}
+              placeholder="What are you looking for"
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <button
+              onClick={() => {
+                dispatchFilter({
+                  type: "SEARCH",
+                  payload: searchText,
+                });
+
+                setSearchText("");
+
+                navigate("/products");
+              }}
+            >
               <i className="fas fa-search"></i>
             </button>
           </div>
@@ -86,7 +108,7 @@ function Nav() {
                       className="wishlist border-radius-S"
                       onClick={() => navigate("/login")}
                     >
-                      <i className="far fa-heart"></i>
+                      <i className="fas fa-shopping-cart"></i>
                     </div>
                   )}
                 </li>

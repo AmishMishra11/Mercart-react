@@ -8,6 +8,7 @@ const useFilter = () => useContext(FilterContext);
 
 const FilterContextProvider = ({ children }) => {
   const [stateFilter, dispatchFilter] = useReducer(filterReducer, {
+    search: "",
     sorting: "",
     men: false,
     women: false,

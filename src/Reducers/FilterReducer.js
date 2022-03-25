@@ -1,5 +1,7 @@
 export const filterReducer = (stateFilter, actionFilter) => {
   switch (actionFilter.type) {
+    case "SEARCH":
+      return { ...stateFilter, search: actionFilter.payload };
     case "SORTING":
       return { ...stateFilter, sorting: actionFilter.payload };
     case "MEN":

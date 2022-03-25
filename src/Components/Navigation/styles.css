@@ -53,9 +53,39 @@
   color: black;
 }
 
+@media (max-width: 700px) {
+  nav .menu,
+  .badges-icon {
+    padding: 0;
+  }
+  .icon-bell p {
+    right: -1px;
+  }
+  .menu li {
+    padding: 3px;
+  }
+  .nav button {
+    padding: 5px;
+  }
+}
+
 @media (max-width: 610px) {
   .search input {
     display: none;
+  }
+
+  /* 
+   */
+
+  nav .menu,
+  .badges-icon,
+  .menu li,
+  .nav button {
+    padding: var(--gap-small);
+  }
+  .icon-bell p {
+    right: 5px;
+    top: -3px;
   }
 }
 

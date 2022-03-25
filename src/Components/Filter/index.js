@@ -7,7 +7,6 @@ function Filter() {
   const { stateFilter, dispatchFilter } = useFilter();
   const { sorting, men, women, kid, toy, rating, range } = stateFilter;
 
-  console.log(stateFilter);
   return (
     <>
       <div className="filter flex-r">
@@ -53,7 +52,7 @@ function Filter() {
       <div className="filters-category">
         <h3>Category</h3>
 
-        <div className="checkboxes flex-c">
+        <div className="  flex-c checkboxes ">
           <label className="checkbox">
             <input
               className="check-input"

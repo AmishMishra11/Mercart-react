@@ -21,7 +21,6 @@ import { sortingFunction } from "../../utilities/sortingFunction";
 
 const ProductListing = () => {
   const [showFilters, setShowFilters] = useState(false);
-  // const [hideFilters, sethideFilters] = useState(false);
 
   const [stateProduct, dispatchProduct] = useReducer(ProductReducer, {
     loading: false,

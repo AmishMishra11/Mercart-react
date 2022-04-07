@@ -4,7 +4,8 @@ import Products from "./Pages/Products";
 import Wishlist from "./Pages/Wishlist";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
@@ -26,6 +27,8 @@ function App() {
       </Routes>
 
       <Footer />
+
+      <ToastContainer />
     </div>
   );
 }

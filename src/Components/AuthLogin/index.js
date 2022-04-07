@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useAuth } from "../../Contexts/AuthContext";
 import { useState } from "react";
@@ -43,6 +44,7 @@ function AuthLogin() {
           id="email-id"
           placeholder="name@company.com"
           name="tempEmail"
+          value={tempEmail}
           onChange={handleChange}
         />
       </div>
@@ -55,6 +57,7 @@ function AuthLogin() {
           id="password-id"
           placeholder="**********"
           name="tempPassword"
+          value={tempPassword}
           onChange={handleChange}
         />
       </div>
@@ -77,12 +80,29 @@ function AuthLogin() {
         onClick={() =>
           tempEmail && tempPassword
             ? !EMAIL_REGEX.test(tempEmail)
-              ? alert("Please Enter Valid Email")
+              ? toast.warning("Please Enter Valid Email", {
+                  position: "bottom-center",
+                  autoClose: 2000,
+                })
               : addNewUser(tempEmail, tempPassword, dispatchAuth, navigate)
-            : alert("Please fill all the fields")
+            : toast.warning("Please fill all the fields", {
+                position: "bottom-center",
+                autoClose: 2000,
+              })
         }
       >
         Login
+      </div>
+      <div
+        className="login-btn btn-secondary border-radius-S"
+        onClick={() =>
+          setTempUserDetail({
+            tempEmail: "test@gmail.com",
+            tempPassword: "test",
+          })
+        }
+      >
+        Guest Credentials
       </div>
       <Link className="login-btn btn-secondary border-radius-S" to="/signup">
         Create New Account

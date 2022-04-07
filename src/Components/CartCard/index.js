@@ -1,11 +1,8 @@
 import React from "react";
 import "./styles.css";
 
-import { useNavigate } from "react-router-dom";
-
-import { useAuth } from "../../Contexts/AuthContext";
-
 import { useCart } from "../../Contexts/CartContext";
+import { toast } from "react-toastify";
 
 import { addWishlist } from "../../Call-Apis/add-wishlist";
 
@@ -23,7 +20,7 @@ const CartCard = ({ item }) => {
     <div className="items-cart">
       <div className="card horizontal">
         <div className="horizontal-container">
-          <img className="item" src={imageURL} />
+          <img className="item" alt="Cart Item" src={imageURL} />
           <div className="text-container">
             <h2>{title}</h2>
             <h3>
@@ -67,7 +64,10 @@ const CartCard = ({ item }) => {
                     ? () => addWishlist(item, dispatchCart)
                     : () =>
                         myWishlist.find((product) => product._id === _id)
-                          ? alert("Already in Wishlist")
+                          ? toast.warning("Already in Wishlist", {
+                              position: "bottom-center",
+                              autoClose: 2000,
+                            })
                           : addWishlist(item, dispatchCart)
                 }
               >

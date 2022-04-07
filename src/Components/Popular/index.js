@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import Card from "../Card";
 

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 export const addUser = async (
   tempFirstName,
   tempLastName,
@@ -25,9 +26,16 @@ export const addUser = async (
       });
       localStorage.setItem("token", res.data.encodedToken);
       navigate("/products");
+      toast.success("Login Success", {
+        position: "bottom-center",
+        autoClose: 2000,
+      });
     }
   } catch (e) {
     console.log("error occured:  ", tempEmail, tempPassword, e);
-    alert("Error Occured while creating new account");
+    toast.error("Server Error", {
+      position: "bottom-center",
+      autoClose: 2000,
+    });
   }
 };

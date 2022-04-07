@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 export const addNewUser = async (
   tempEmail,
   tempPassword,
@@ -14,13 +15,21 @@ export const addNewUser = async (
     if (res.status === 200) {
       dispatchAuth({
         type: "GET_USER_DETAILS",
-        payload: res.data.createdUser,
+        payload: res.data.foundUser,
       });
       localStorage.setItem("token", res.data.encodedToken);
       navigate("/products");
+
+      toast.success("Login Success", {
+        position: "bottom-center",
+        autoClose: 2000,
+      });
     }
   } catch (e) {
     console.log("error occured:  ", tempEmail, tempPassword, e);
-    alert("Invalid email or password");
+    toast.error("Server Error", {
+      position: "bottom-center",
+      autoClose: 2000,
+    });
   }
 };

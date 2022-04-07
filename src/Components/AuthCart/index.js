@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import { toast } from "react-toastify";
 
 import Empty from "../../assets/empty.png";
 
@@ -74,7 +75,12 @@ function AuthCart() {
             <div className="button">
               <button
                 className="button-primary border-radius-L"
-                onClick={() => alert("Thank you for your purchase")}
+                onClick={() =>
+                  toast.success("Thank you for Shopping", {
+                    position: "bottom-center",
+                    autoClose: 2000,
+                  })
+                }
               >
                 Place Order
               </button>

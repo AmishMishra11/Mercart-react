@@ -24,6 +24,7 @@ const Card = ({ item }) => {
   const { stateAuth } = useAuth();
 
   const { title, price, rating, imageURL, _id, offer } = item;
+
   return (
     <div className="card">
       <img className="item" src={imageURL} alt="Product" />
@@ -90,19 +91,21 @@ const Card = ({ item }) => {
         {/* -- */}
 
         {stateAuth.isAuth ? (
-          <div
-            className="card-btn btn-secondary border-radius-S"
-            onClick={
-              myCart.length === 0
-                ? () => addCart(item, dispatchCart)
-                : () =>
-                    myCart.find((product) => product._id === _id)
-                      ? quantityCart(_id, dispatchCart, "increment")
-                      : addCart(item, dispatchCart)
-            }
-          >
-            Add to cart
-          </div>
+          myCart.find((product) => product._id === _id) ? (
+            <div
+              className="card-btn btn-secondary border-radius-S"
+              onClick={() => navigate("/cart")}
+            >
+              Go To Cart
+            </div>
+          ) : (
+            <div
+              className="card-btn btn-secondary border-radius-S"
+              onClick={() => addCart(item, dispatchCart)}
+            >
+              Add To Cart
+            </div>
+          )
         ) : (
           <div
             className="card-btn btn-secondary border-radius-S"

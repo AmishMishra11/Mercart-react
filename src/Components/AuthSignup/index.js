@@ -5,6 +5,7 @@ import { useAuth } from "../../Contexts/AuthContext";
 import { useState } from "react";
 import { addUser } from "../../Call-Apis/add-user";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function AuthSignup() {
   const EMAIL_REGEX = new RegExp(
@@ -26,6 +27,8 @@ function AuthSignup() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const [varifyPassword, setVarifyPassword] = useState("");
 
   const { dispatchAuth } = useAuth();
 
@@ -49,12 +52,12 @@ function AuthSignup() {
       </div>
 
       <div className="second-name">
-        <label htmlFor="second-name-id"> Second Name </label>
+        <label htmlFor="second-name-id"> Last Name </label>
         <input
           className="border-radius-S"
           type="text"
           id="second-name-id"
-          placeholder="Second_Name"
+          placeholder="Last_Name"
           name="tempLastName"
           onChange={handleChange}
         />
@@ -84,6 +87,18 @@ function AuthSignup() {
         />
       </div>
 
+      <div className="password">
+        <label htmlFor="password-id">Varify Password</label>
+        <input
+          className="border-radius-S"
+          type="password"
+          id="varify-password-id"
+          placeholder="**********"
+          name="varifyPassword"
+          onChange={(e) => setVarifyPassword(e.target.value)}
+        />
+      </div>
+
       <div className="container-extra">
         <div className="container-reminder flex-r">
           <label className="checkbox">
@@ -98,8 +113,12 @@ function AuthSignup() {
         onClick={() =>
           tempFirstName && tempLastName && tempEmail && tempPassword
             ? !EMAIL_REGEX.test(tempEmail)
-              ? alert("Please Enter Valid Email")
-              : addUser(
+              ? toast.warning("Please Enter Valid Email", {
+                  position: "bottom-center",
+                  autoClose: 2000,
+                })
+              : tempPassword === varifyPassword
+              ? addUser(
                   tempFirstName,
                   tempLastName,
                   tempEmail,
@@ -107,7 +126,14 @@ function AuthSignup() {
                   dispatchAuth,
                   navigate
                 )
-            : alert("Please fill all the fields")
+              : toast.warning("Passwords do not patch", {
+                  position: "bottom-center",
+                  autoClose: 2000,
+                })
+            : toast.warning("Please fill all the fields", {
+                position: "bottom-center",
+                autoClose: 2000,
+              })
         }
       >
         <div>Create New Account</div>

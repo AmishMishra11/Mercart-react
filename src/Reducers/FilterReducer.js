@@ -23,6 +23,7 @@ export const filterReducer = (stateFilter, actionFilter) => {
       return {
         ...stateFilter,
         sorting: "",
+        search: "",
         men: false,
         women: false,
         kid: false,

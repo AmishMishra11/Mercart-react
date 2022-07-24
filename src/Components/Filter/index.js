@@ -58,7 +58,7 @@ function Filter() {
               className="check-input"
               type="checkbox"
               checked={men}
-              onClick={() => dispatchFilter({ type: "MEN", payload: !men })}
+              onChange={() => dispatchFilter({ type: "MEN", payload: !men })}
             />
             <span className="check-msg">Men</span>
           </label>
@@ -68,7 +68,9 @@ function Filter() {
               className="check-input"
               type="checkbox"
               checked={women}
-              onClick={() => dispatchFilter({ type: "WOMEN", payload: !women })}
+              onChange={() =>
+                dispatchFilter({ type: "WOMEN", payload: !women })
+              }
             />
             <span className="check-msg">Women </span>
           </label>
@@ -78,7 +80,7 @@ function Filter() {
               className="check-input"
               type="checkbox"
               checked={kid}
-              onClick={() => dispatchFilter({ type: "KID", payload: !kid })}
+              onChange={() => dispatchFilter({ type: "KID", payload: !kid })}
             />
             <span className="check-msg">Kids </span>
           </label>
@@ -87,7 +89,7 @@ function Filter() {
               className="check-input"
               type="checkbox"
               checked={toy}
-              onClick={() => dispatchFilter({ type: "TOY", payload: !toy })}
+              onChange={() => dispatchFilter({ type: "TOY", payload: !toy })}
             />
             <span className="check-msg">Toys </span>
           </label>
@@ -104,7 +106,7 @@ function Filter() {
               type="radio"
               name="rate"
               checked={rating === 5}
-              onClick={() => dispatchFilter({ type: "RATING", payload: 5 })}
+              onChange={() => dispatchFilter({ type: "RATING", payload: 5 })}
             />
             <span className="radio-msg"> 5 Stars </span>
           </label>
@@ -114,7 +116,7 @@ function Filter() {
               type="radio"
               name="rate"
               checked={rating === 4}
-              onClick={() => dispatchFilter({ type: "RATING", payload: 4 })}
+              onChange={() => dispatchFilter({ type: "RATING", payload: 4 })}
             />
             <span className="radio-msg"> 4 Stars </span>
           </label>
@@ -124,7 +126,7 @@ function Filter() {
               type="radio"
               name="rate"
               checked={rating === 3}
-              onClick={() => dispatchFilter({ type: "RATING", payload: 3 })}
+              onChange={() => dispatchFilter({ type: "RATING", payload: 3 })}
             />
             <span className="radio-msg">3 Stars </span>
           </label>
@@ -134,7 +136,7 @@ function Filter() {
               type="radio"
               name="rate"
               checked={rating === 2}
-              onClick={() => dispatchFilter({ type: "RATING", payload: 2 })}
+              onChange={() => dispatchFilter({ type: "RATING", payload: 2 })}
             />
             <span className="radio-msg">2 Stars </span>
           </label>
@@ -144,7 +146,7 @@ function Filter() {
               type="radio"
               name="rate"
               checked={rating === 1}
-              onClick={() => dispatchFilter({ type: "RATING", payload: 1 })}
+              onChange={() => dispatchFilter({ type: "RATING", payload: 1 })}
             />
             <span className="radio-msg">1 Stars </span>
           </label>
@@ -161,7 +163,7 @@ function Filter() {
               type="radio"
               name="sort"
               checked={sorting === "high"}
-              onClick={() =>
+              onChange={() =>
                 dispatchFilter({ type: "SORTING", payload: "high" })
               }
             />
@@ -173,7 +175,7 @@ function Filter() {
               type="radio"
               name="sort"
               checked={sorting === "low"}
-              onClick={() =>
+              onChange={() =>
                 dispatchFilter({ type: "SORTING", payload: "low" })
               }
             />

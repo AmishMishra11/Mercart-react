@@ -125,8 +125,10 @@ function Footer() {
             </li>
           </ul>
 
-          <h4>© Credits</h4>
-          <p>Marvel</p>
+          <div className="footer-credit">
+            <h4>© Credits</h4>
+            <p>Marvel</p>
+          </div>
         </div>
       </div>
     </footer>

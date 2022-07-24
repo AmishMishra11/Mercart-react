@@ -4,7 +4,8 @@ export const addNewUser = async (
   tempEmail,
   tempPassword,
   dispatchAuth,
-  navigate
+  navigate,
+  location
 ) => {
   try {
     const res = await axios({
@@ -18,7 +19,9 @@ export const addNewUser = async (
         payload: res.data.foundUser,
       });
       localStorage.setItem("token", res.data.encodedToken);
-      navigate("/products");
+
+      const whereTo = location?.state?.from?.pathname;
+      navigate(whereTo || "../products", { replace: true });
 
       toast.success("Login Success", {
         position: "bottom-center",

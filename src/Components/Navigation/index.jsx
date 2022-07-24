@@ -66,26 +66,19 @@ function Nav() {
             <div className="badges-icon">
               <div className="icon-bell">
                 <li>
-                  {stateAuth.isAuth ? (
-                    <div className="wishlist-container">
-                      <div
-                        className="wishlist border-radius-S"
-                        onClick={() => navigate("/wishlist")}
-                      >
-                        <i className="far fa-heart"></i>
-                      </div>
-                      <p className="border-radius-Circle">
-                        {myWishlist.length}
-                      </p>
-                    </div>
-                  ) : (
+                  <div className="wishlist-container">
                     <div
                       className="wishlist border-radius-S"
-                      onClick={() => navigate("/login")}
+                      onClick={() => navigate("/wishlist")}
                     >
                       <i className="far fa-heart"></i>
                     </div>
-                  )}
+                    {stateAuth.isAuth && (
+                      <p className="border-radius-Circle">
+                        {myWishlist.length}
+                      </p>
+                    )}
+                  </div>
                 </li>
               </div>
             </div>
@@ -93,24 +86,17 @@ function Nav() {
             <div className="badges-icon">
               <div className="icon-bell">
                 <li>
-                  {stateAuth.isAuth ? (
-                    <div className="wishlist-container">
-                      <div
-                        className="wishlist border-radius-S"
-                        onClick={() => navigate("/cart")}
-                      >
-                        <i className="fas fa-shopping-cart"></i>
-                      </div>
-                      <p className="border-radius-Circle">{myCart.length}</p>
-                    </div>
-                  ) : (
+                  <div className="wishlist-container">
                     <div
                       className="wishlist border-radius-S"
-                      onClick={() => navigate("/login")}
+                      onClick={() => navigate("/cart")}
                     >
                       <i className="fas fa-shopping-cart"></i>
                     </div>
-                  )}
+                    {stateAuth.isAuth && (
+                      <p className="border-radius-Circle">{myCart.length}</p>
+                    )}
+                  </div>
                 </li>
               </div>
             </div>

@@ -1,13 +1,13 @@
 import React from "react";
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { useAuth } from "../../Contexts/AuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { addNewUser } from "../../Call-Apis/add-newUser";
+import { loginApi } from "../../Services/User/loginApi";
 
 function AuthLogin() {
   const EMAIL_REGEX = new RegExp(
@@ -15,6 +15,7 @@ function AuthLogin() {
   );
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [tempUserDetail, setTempUserDetail] = useState({
     tempEmail: "",
@@ -84,7 +85,13 @@ function AuthLogin() {
                   position: "bottom-center",
                   autoClose: 2000,
                 })
-              : addNewUser(tempEmail, tempPassword, dispatchAuth, navigate)
+              : loginApi(
+                  tempEmail,
+                  tempPassword,
+                  dispatchAuth,
+                  navigate,
+                  location
+                )
             : toast.warning("Please fill all the fields", {
                 position: "bottom-center",
                 autoClose: 2000,

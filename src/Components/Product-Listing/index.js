@@ -7,7 +7,7 @@ import { ProductReducer } from "../../Reducers/ProductReducer";
 
 import { useEffect, useReducer, useState } from "react";
 
-import { loadProducts } from "../../Call-Apis/load-products";
+import { loadProductsApi } from "../../Services/Porducts/loadPorductsApi";
 
 import Filter from "../Filter";
 
@@ -33,7 +33,7 @@ const ProductListing = () => {
   const { search, sorting, men, women, kid, toy, rating, range } = stateFilter;
 
   useEffect(() => {
-    loadProducts(dispatchProduct);
+    loadProductsApi(dispatchProduct);
   }, []);
 
   const newData0 = searchFunction(product, search);

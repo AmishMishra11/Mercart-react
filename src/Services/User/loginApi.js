@@ -1,31 +1,28 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-export const addUser = async (
-  tempFirstName,
-  tempLastName,
+export const loginApi = async (
   tempEmail,
   tempPassword,
   dispatchAuth,
-  navigate
+  navigate,
+  location
 ) => {
   try {
     const res = await axios({
       method: "POST",
-      url: "/api/auth/signup",
-      data: {
-        firstName: tempFirstName,
-        lastName: tempLastName,
-        email: tempEmail,
-        password: tempPassword,
-      },
+      url: "/api/auth/login",
+      data: { email: tempEmail, password: tempPassword },
     });
-    if (res.status === 201) {
+    if (res.status === 200) {
       dispatchAuth({
         type: "GET_USER_DETAILS",
-        payload: res.data.createdUser,
+        payload: res.data.foundUser,
       });
       localStorage.setItem("token", res.data.encodedToken);
-      navigate("/products");
+
+      const whereTo = location?.state?.from?.pathname;
+      navigate(whereTo || "../products", { replace: true });
+
       toast.success("Login Success", {
         position: "bottom-center",
         autoClose: 2000,

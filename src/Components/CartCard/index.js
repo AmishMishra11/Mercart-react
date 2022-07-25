@@ -4,11 +4,11 @@ import "./styles.css";
 import { useCart } from "../../Contexts/CartContext";
 import { toast } from "react-toastify";
 
-import { addWishlist } from "../../Call-Apis/add-wishlist";
+import { addWishlistApi } from "../../Services/Wishlist/addWishlistApi";
 
-import { removeCart } from "../../Call-Apis/remove-cart";
+import { removeCartApi } from "../../Services/Cart/removeCartApi";
 
-import { quantityCart } from "../../Call-Apis/quantity-cart";
+import { quantityCartApi } from "../../Services/Cart/quantityCartApi";
 
 const CartCard = ({ item }) => {
   const { stateCart, dispatchCart } = useCart();
@@ -35,8 +35,8 @@ const CartCard = ({ item }) => {
                 className="border-radius-Circle"
                 onClick={
                   qty > 1
-                    ? () => quantityCart(_id, dispatchCart, "decrement")
-                    : () => removeCart(_id, dispatchCart)
+                    ? () => quantityCartApi(_id, dispatchCart, "decrement")
+                    : () => removeCartApi(_id, dispatchCart)
                 }
               >
                 -
@@ -50,7 +50,7 @@ const CartCard = ({ item }) => {
               />
               <button
                 className="border-radius-Circle"
-                onClick={() => quantityCart(_id, dispatchCart, "increment")}
+                onClick={() => quantityCartApi(_id, dispatchCart, "increment")}
               >
                 +
               </button>
@@ -61,14 +61,14 @@ const CartCard = ({ item }) => {
                 className="button-secondary border-radius-L"
                 onClick={
                   myWishlist.length === 0
-                    ? () => addWishlist(item, dispatchCart)
+                    ? () => addWishlistApi(item, dispatchCart)
                     : () =>
                         myWishlist.find((product) => product._id === _id)
                           ? toast.warning("Already in Wishlist", {
                               position: "bottom-center",
                               autoClose: 2000,
                             })
-                          : addWishlist(item, dispatchCart)
+                          : addWishlistApi(item, dispatchCart)
                 }
               >
                 Move to Wishlist
@@ -78,7 +78,7 @@ const CartCard = ({ item }) => {
             <div className="button">
               <button
                 className="button-secondary third border-radius-L"
-                onClick={() => removeCart(_id, dispatchCart)}
+                onClick={() => removeCartApi(_id, dispatchCart)}
               >
                 Remove from cart
               </button>

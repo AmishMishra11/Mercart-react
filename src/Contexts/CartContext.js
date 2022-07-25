@@ -1,7 +1,7 @@
 import { cartReducer } from "../Reducers/CartReducer";
 
-import { loadWishlist } from "../Call-Apis/load-wishlist";
-import { loadCart } from "../Call-Apis/load-cart";
+import { loadCartApi } from "../Services/Cart/loadCartApi";
+import { loadWishlistApi } from "../Services/Wishlist/loadWishlistApi";
 
 const { createContext, useContext, useReducer, useEffect } = require("react");
 
@@ -11,8 +11,8 @@ const useCart = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
   useEffect(() => {
-    loadWishlist();
-    loadCart();
+    loadWishlistApi();
+    loadCartApi();
   }, []);
 
   const [stateCart, dispatchCart] = useReducer(cartReducer, {

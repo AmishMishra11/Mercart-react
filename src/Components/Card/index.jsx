@@ -6,13 +6,13 @@ import { useAuth } from "../../Contexts/AuthContext";
 
 import { useCart } from "../../Contexts/CartContext";
 
-import { addWishlist } from "../../Call-Apis/add-wishlist";
+import { addWishlistApi } from "../../Services/Wishlist/addWishlistApi";
 
-import { removeWishlist } from "../../Call-Apis/remove-wishlist";
+import { removeWishlistApi } from "../../Services/Wishlist/removeWishlistApi";
 
-import { addCart } from "../../Call-Apis/add-cart";
+import { addCartApi } from "../../Services/Cart/addCartApi";
 
-import { quantityCart } from "../../Call-Apis/quantity-cart";
+import { quantityCartApi } from "../../Services/Cart/quantityCartApi";
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
@@ -34,11 +34,11 @@ const Card = ({ item }) => {
           className="badge"
           onClick={
             myWishlist.length === 0
-              ? () => addWishlist(item, dispatchCart)
+              ? () => addWishlistApi(item, dispatchCart)
               : () =>
                   myWishlist.find((product) => product._id === _id)
-                    ? removeWishlist(_id, dispatchCart)
-                    : addWishlist(item, dispatchCart)
+                    ? removeWishlistApi(_id, dispatchCart)
+                    : addWishlistApi(item, dispatchCart)
           }
         >
           <i
@@ -71,11 +71,11 @@ const Card = ({ item }) => {
             className="card-btn btn-primary border-radius-S"
             onClick={
               myCart.length === 0
-                ? () => addCart(item, dispatchCart)
+                ? () => addCartApi(item, dispatchCart)
                 : () =>
                     myCart.find((product) => product._id === _id)
-                      ? quantityCart(_id, dispatchCart, "increment")
-                      : addCart(item, dispatchCart)
+                      ? quantityCartApi(_id, dispatchCart, "increment")
+                      : addCartApi(item, dispatchCart)
             }
           >
             Buy Now
@@ -101,7 +101,7 @@ const Card = ({ item }) => {
           ) : (
             <div
               className="card-btn btn-secondary border-radius-S"
-              onClick={() => addCart(item, dispatchCart)}
+              onClick={() => addCartApi(item, dispatchCart)}
             >
               Add To Cart
             </div>

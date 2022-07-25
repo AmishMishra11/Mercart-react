@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-export const removeWishlist = async (id, dispatchCart) => {
+export const removeWishlistApi = async (id, dispatchCart) => {
   const newToken = localStorage.getItem("token");
 
   try {

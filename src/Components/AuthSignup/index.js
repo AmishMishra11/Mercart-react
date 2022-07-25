@@ -3,9 +3,9 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContext";
 import { useState } from "react";
-import { addUser } from "../../Call-Apis/add-user";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { signupApi } from "../../Services/User/signupApi";
 
 function AuthSignup() {
   const EMAIL_REGEX = new RegExp(
@@ -118,7 +118,7 @@ function AuthSignup() {
                   autoClose: 2000,
                 })
               : tempPassword === varifyPassword
-              ? addUser(
+              ? signupApi(
                   tempFirstName,
                   tempLastName,
                   tempEmail,

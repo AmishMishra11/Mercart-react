@@ -1,20 +1,21 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-export const addWishlist = async (product, dispatchCart) => {
+export const addCartApi = async (product, dispatchCart) => {
   const newToken = localStorage.getItem("token");
 
   try {
     const res = await axios({
       method: "POST",
-      url: "/api/user/wishlist",
+      url: "/api/user/cart",
       data: { product: product },
       headers: {
         authorization: newToken,
       },
     });
     if (res.status === 201) {
-      dispatchCart({ type: "ADD_WISHLIST", payload: res.data.wishlist });
-      toast.success("Added to Wihslist", {
+      dispatchCart({ type: "ADD_CART", payload: res.data.cart });
+
+      toast.success("Added to Cart", {
         position: "bottom-center",
         autoClose: 2000,
       });

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const loadProducts = async (dispatchProduct) => {
+export const loadProductsApi = async (dispatchProduct) => {
   try {
     dispatchProduct({ type: "LOAD_PRODUCTS" });
     const { data } = await axios.get("/api/products");

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-export const addUser = async (
+export const signupApi = async (
   tempFirstName,
   tempLastName,
   tempEmail,

@@ -7,7 +7,7 @@ import { useAuth } from "../../Contexts/AuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { addNewUser } from "../../Call-Apis/add-newUser";
+import { loginApi } from "../../Services/User/loginApi";
 
 function AuthLogin() {
   const EMAIL_REGEX = new RegExp(
@@ -85,7 +85,7 @@ function AuthLogin() {
                   position: "bottom-center",
                   autoClose: 2000,
                 })
-              : addNewUser(
+              : loginApi(
                   tempEmail,
                   tempPassword,
                   dispatchAuth,
